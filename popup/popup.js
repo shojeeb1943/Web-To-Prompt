@@ -13,6 +13,11 @@
   const elActivateBtn = document.getElementById('activateBtn');
   const elTabs = document.getElementById('tabs');
 
+  const REQUIRED_ELS = { elInfoBar, elLiveDot, elLiveLabel, elEmptyState, elTextarea, elFooter, elCopyBtn, elCopyFeedback, elActivateBtn, elTabs };
+  for (const [name, el] of Object.entries(REQUIRED_ELS)) {
+    if (!el) throw new Error(`[Web To Prompt] Missing DOM element: ${name}`);
+  }
+
   // ── Init ───────────────────────────────────────────────────────────────────
 
   function init() {
@@ -35,6 +40,10 @@
       }
       if (msg.type === 'CAPTURE_MODE_ACTIVE') setLiveState(true);
       if (msg.type === 'CAPTURE_MODE_INACTIVE') setLiveState(false);
+      if (msg.type === 'CAPTURE_RESTRICTED') {
+        setLiveState(false);
+        elInfoBar.textContent = 'This page cannot be captured by extensions';
+      }
     });
   }
 
@@ -80,7 +89,7 @@
     const btn = e.target.closest('.tab');
     if (!btn) return;
     const format = btn.dataset.format;
-    if (format === currentFormat) return;
+    if (!['html', 'react', 'vibe'].includes(format) || format === currentFormat) return;
 
     currentFormat = format;
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('tab--active'));

@@ -9,10 +9,19 @@
   // ── Color helpers ────────────────────────────────────────────────────────
 
   function parseColor(cssString) {
-    if (!cssString) return null;
+    if (!cssString || typeof cssString !== 'string') return null;
+    // rgb/rgba — most common from getComputedStyle
     const m = cssString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-    if (!m) return null;
-    return { r: +m[1], g: +m[2], b: +m[3], a: m[4] !== undefined ? +m[4] : 1 };
+    if (m) return { r: +m[1], g: +m[2], b: +m[3], a: m[4] !== undefined ? +m[4] : 1 };
+    // hex #rrggbb / #rgb
+    const hex = cssString.match(/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/);
+    if (hex) {
+      let h = hex[1];
+      if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+      return { r: parseInt(h.slice(0,2),16), g: parseInt(h.slice(2,4),16), b: parseInt(h.slice(4,6),16), a: 1 };
+    }
+    if (cssString === 'transparent') return { r: 0, g: 0, b: 0, a: 0 };
+    return null;
   }
 
   function toHex({ r, g, b }) {
@@ -21,13 +30,15 @@
 
   function resolveEffectiveBg(el) {
     let node = el;
-    while (node && node !== document.documentElement) {
+    while (node && node.nodeType === Node.ELEMENT_NODE && node !== document.documentElement) {
       const bg = getComputedStyle(node).backgroundColor;
       const parsed = parseColor(bg);
       if (parsed && parsed.a > 0) return bg;
       node = node.parentElement;
     }
-    return 'rgba(255, 255, 255, 1)';
+    const rootBg = getComputedStyle(document.documentElement).backgroundColor;
+    const rootParsed = parseColor(rootBg);
+    return (rootParsed && rootParsed.a > 0) ? rootBg : 'rgba(255, 255, 255, 1)';
   }
 
   // ── Visibility guard ─────────────────────────────────────────────────────
@@ -37,6 +48,20 @@
     if (s.display === 'none' || s.visibility === 'hidden' || s.opacity === '0') return false;
     const r = el.getBoundingClientRect();
     return r.width > 0 && r.height > 0;
+  }
+
+  function truncateText(text, max = 200) {
+    if (text.length <= max) return text;
+    return text.slice(0, max).split(' ').slice(0, -1).join(' ') + '…';
+  }
+
+  function captureSvg(el) {
+    try {
+      const html = el.outerHTML;
+      return html.length > 5000 ? html.slice(0, 5000) + '<!-- SVG truncated -->' : html;
+    } catch (_) {
+      return '<!-- SVG capture error -->';
+    }
   }
 
   // ── DOM capture ──────────────────────────────────────────────────────────
@@ -80,11 +105,11 @@
         .map(n => n.textContent.trim())
         .filter(Boolean)
         .join(' '),
-      fullText: (el.innerText || '').trim().slice(0, 200),
+      fullText: truncateText((el.innerText || '').trim()),
       href: tag === 'a' ? el.getAttribute('href') : null,
       src: tag === 'img' ? el.getAttribute('src') : null,
       alt: tag === 'img' ? el.getAttribute('alt') : null,
-      svgRaw: tag === 'svg' ? el.outerHTML : null,
+      svgRaw: tag === 'svg' ? captureSvg(el) : null,
       styles: {
         backgroundColor: bgColor,
         backgroundColorHex: bgParsed && bgParsed.a > 0 ? toHex(bgParsed) : null,

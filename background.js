@@ -10,7 +10,9 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
   if (msg.type === 'CAPTURE_RESULT') {
     chrome.storage.local.set({ captureResult: msg.data, captureActive: false }, () => {
       activeTabId = null;
-      chrome.runtime.sendMessage({ type: 'CAPTURE_READY' }).catch(() => {});
+      chrome.runtime.sendMessage({ type: 'CAPTURE_READY' }, () => {
+        void chrome.runtime.lastError; // popup may not be open — suppress error
+      });
     });
   }
 
@@ -62,7 +64,9 @@ function handleActivate(tabId) {
     files: ['content.js'],
   }).then(() => {
     chrome.tabs.sendMessage(tabId, { type: 'ACTIVATE_CAPTURE' });
-  }).catch(() => {
-    chrome.tabs.sendMessage(tabId, { type: 'ACTIVATE_CAPTURE' });
+  }).catch((err) => {
+    activeTabId = null;
+    chrome.storage.local.set({ captureActive: false, captureError: 'restricted' });
+    chrome.runtime.sendMessage({ type: 'CAPTURE_RESTRICTED' }, () => { void chrome.runtime.lastError; });
   });
 }

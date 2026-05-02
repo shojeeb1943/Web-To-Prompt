@@ -4,15 +4,17 @@ const KNOWN_GOOGLE_FONTS = [
   'Source Sans Pro', 'IBM Plex Sans',
 ];
 
+const VALID_FORMATS = ['html', 'react', 'vibe'];
+
 function buildPrompt(capturedJSON, format) {
-  if (!capturedJSON) return '';
-  format = format || 'html';
+  if (!capturedJSON || typeof capturedJSON !== 'object') return '';
+  format = VALID_FORMATS.includes(format) ? format : 'html';
 
   const tokens = collectTokens(capturedJSON);
   const overview = buildOverview(capturedJSON, format);
   const layoutTree = buildLayoutTree(capturedJSON, 0);
   const tokenTable = buildTokenTable(tokens);
-  const specs = buildElementSpecs(capturedJSON, 0, format);
+  const specs = buildElementSpecs(capturedJSON, 0);
   const typo = buildTypography(tokens);
   const hover = buildHoverStates(capturedJSON);
   const responsive = buildResponsive(format);
@@ -111,7 +113,7 @@ function buildLayoutTree(node, depth) {
 
 // ── Element specs ─────────────────────────────────────────────────────────────
 
-function buildElementSpecs(node, depth, format) {
+function buildElementSpecs(node, depth) {
   if (!node) return '';
   const s = node.styles || {};
   const indent = '  '.repeat(depth);
@@ -183,7 +185,7 @@ function buildElementSpecs(node, depth, format) {
 
   (node.children || []).forEach(c => {
     lines.push('');
-    lines.push(buildElementSpecs(c, depth + 1, format));
+    lines.push(buildElementSpecs(c, depth + 1));
   });
 
   return lines.join('\n');
