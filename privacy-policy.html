@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Web To Prompt</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 680px; margin: 60px auto; padding: 0 20px; color: #374151; line-height: 1.7; }
+    h1 { font-size: 24px; color: #111; margin-bottom: 8px; }
+    h2 { font-size: 16px; color: #111; margin-top: 32px; margin-bottom: 8px; }
+    p  { margin-bottom: 12px; }
+    ul { margin-bottom: 12px; padding-left: 20px; }
+    li { margin-bottom: 4px; }
+    .date { color: #6b7280; font-size: 13px; margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  <p class="date">Last updated: May 2025</p>
+
+  <h2>Overview</h2>
+  <p>Web To Prompt is a Chrome extension that helps you capture website elements and generate AI prompts to rebuild them. We are committed to protecting your privacy.</p>
+
+  <h2>Data We Collect</h2>
+  <p>Web To Prompt does <strong>not</strong> collect, transmit, or store any personal data on external servers. The extension operates entirely within your browser.</p>
+
+  <h2>Local Storage Only</h2>
+  <p>When you capture a web element, the captured DOM and style data is stored temporarily in your browser's local storage (<code>chrome.storage.local</code>). This data:</p>
+  <ul>
+    <li>Never leaves your device</li>
+    <li>Is never sent to any server</li>
+    <li>Is overwritten each time you capture a new element</li>
+    <li>Is deleted when you uninstall the extension</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <p>The extension requests the following permissions:</p>
+  <ul>
+    <li><strong>activeTab</strong> — to read the DOM of the page you are currently viewing, only when you activate capture mode</li>
+    <li><strong>scripting</strong> — to inject the capture script into the active tab on demand</li>
+    <li><strong>storage</strong> — to temporarily save the captured element data locally in your browser</li>
+    <li><strong>clipboardWrite</strong> — to copy the generated prompt to your clipboard when you click "Copy Prompt"</li>
+  </ul>
+
+  <h2>Third-Party Services</h2>
+  <p>Web To Prompt v1.0 does not communicate with any third-party service or API. All prompt generation happens locally in your browser using pure JavaScript.</p>
+
+  <h2>Contact</h2>
+  <p>If you have questions about this privacy policy, please open an issue on the project's GitHub repository.</p>
+</body>
+</html>
