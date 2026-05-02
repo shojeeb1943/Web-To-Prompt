@@ -11,9 +11,10 @@
   const elCopyBtn = document.getElementById('copyBtn');
   const elCopyFeedback = document.getElementById('copyFeedback');
   const elActivateBtn = document.getElementById('activateBtn');
+  const elNewCaptureBtn = document.getElementById('newCaptureBtn');
   const elTabs = document.getElementById('tabs');
 
-  const REQUIRED_ELS = { elInfoBar, elLiveDot, elLiveLabel, elEmptyState, elTextarea, elFooter, elCopyBtn, elCopyFeedback, elActivateBtn, elTabs };
+  const REQUIRED_ELS = { elInfoBar, elLiveDot, elLiveLabel, elEmptyState, elTextarea, elFooter, elCopyBtn, elCopyFeedback, elActivateBtn, elNewCaptureBtn, elTabs };
   for (const [name, el] of Object.entries(REQUIRED_ELS)) {
     if (!el) throw new Error(`[Web To Prompt] Missing DOM element: ${name}`);
   }
@@ -101,6 +102,16 @@
   // ── Activate button ────────────────────────────────────────────────────────
 
   elActivateBtn.addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (!tabs[0]) return;
+      chrome.runtime.sendMessage({ type: 'ACTIVATE_CAPTURE', tabId: tabs[0].id });
+      window.close();
+    });
+  });
+
+  // ── New capture button ─────────────────────────────────────────────────────
+
+  elNewCaptureBtn.addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (!tabs[0]) return;
       chrome.runtime.sendMessage({ type: 'ACTIVATE_CAPTURE', tabId: tabs[0].id });

@@ -176,7 +176,29 @@ body {
   flex-shrink: 0;
 }
 
+.btn-new {
+  background: none;
+  color: #4F46E5;
+  border: 1.5px solid #4F46E5;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 150ms, color 150ms, transform 100ms;
+  flex-shrink: 0;
+}
+
+.btn-new:hover {
+  background: #eef2ff;
+}
+
+.btn-new:active {
+  transform: scale(0.97);
+}
+
 .btn-copy {
+  flex: 1;
   background: #4F46E5;
   color: #fff;
   border: none;
