@@ -1,0 +1,18 @@
+# Environment files
+.env
+.env.*
+*.env
+
+# Notes folder
+notes/
+
+# Claude-generated fix/analysis markdown files
+fix-*.md
+fixes-*.md
+claude-*.md
+analysis-*.md
+*-fix.md
+*-fixes.md
+*-analysis.md
+FIXES.md
+ANALYSIS.md

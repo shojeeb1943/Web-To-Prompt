@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web To Prompt</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <header class="header">
+      <span class="header__title">Web To Prompt</span>
+      <span class="header__live">
+        <span class="live-dot" id="liveDot"></span>
+        <span class="live-label" id="liveLabel">Ready</span>
+      </span>
+    </header>
+
+    <div class="info-bar" id="infoBar">No element captured yet</div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab tab--active" data-format="html">HTML/CSS</button>
+      <button class="tab" data-format="react">React</button>
+      <button class="tab" data-format="vibe">v0/Bolt</button>
+    </div>
+
+    <div class="prompt-area">
+      <div class="empty-state" id="emptyState">
+        <p>Activate capture mode, then click any element on the page.</p>
+        <button class="btn-activate" id="activateBtn">Activate Capture</button>
+      </div>
+      <textarea class="prompt-textarea" id="promptTextarea" readonly spellcheck="false" style="display:none"></textarea>
+    </div>
+
+    <footer class="footer" id="footer" style="display:none">
+      <button class="btn-copy" id="copyBtn">Copy Prompt</button>
+      <span class="copy-feedback" id="copyFeedback"></span>
+    </footer>
+  </div>
+
+  <script src="../promptBuilder.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
