@@ -6,26 +6,67 @@
   let highlightedEl = null;
   let toast = null;
 
+  const MEANINGFUL_TAGS = ['section', 'article', 'main', 'header', 'footer', 'nav', 'aside'];
+  const MEANINGFUL_CLASSES = ['card', 'hero', 'container', 'wrapper', 'banner', 'feature', 'cta', 'modal'];
+
   // ── Color helpers ────────────────────────────────────────────────────────
 
   function parseColor(cssString) {
     if (!cssString || typeof cssString !== 'string') return null;
-    // rgb/rgba — most common from getComputedStyle
-    const m = cssString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-    if (m) return { r: +m[1], g: +m[2], b: +m[3], a: m[4] !== undefined ? +m[4] : 1 };
-    // hex #rrggbb / #rgb
-    const hex = cssString.match(/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/);
-    if (hex) {
-      let h = hex[1];
-      if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
-      return { r: parseInt(h.slice(0,2),16), g: parseInt(h.slice(2,4),16), b: parseInt(h.slice(4,6),16), a: 1 };
+    
+    cssString = cssString.trim();
+    
+    // Handle hex colors: #FF0000, #F00
+    if (/^#[0-9a-fA-F]{3}$|^#[0-9a-fA-F]{6}$/.test(cssString)) {
+      let hex = cssString.slice(1);
+      if (hex.length === 3) {
+        hex = [...hex].map(x => x + x).join('');
+      }
+      return {
+        r: parseInt(hex.slice(0, 2), 16),
+        g: parseInt(hex.slice(2, 4), 16),
+        b: parseInt(hex.slice(4, 6), 16),
+        a: 1
+      };
     }
-    if (cssString === 'transparent') return { r: 0, g: 0, b: 0, a: 0 };
+    
+    // Handle rgb/rgba: rgb(255, 0, 0), rgba(255, 0, 0, 0.5)
+    const rgbMatch = cssString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+    if (rgbMatch) {
+      return {
+        r: +rgbMatch[1],
+        g: +rgbMatch[2],
+        b: +rgbMatch[3],
+        a: rgbMatch[4] !== undefined ? +rgbMatch[4] : 1
+      };
+    }
+    
+    // Handle CSS keywords
+    const keywords = {
+      transparent: { r: 0, g: 0, b: 0, a: 0 },
+      white: { r: 255, g: 255, b: 255, a: 1 },
+      black: { r: 0, g: 0, b: 0, a: 1 },
+      red: { r: 255, g: 0, b: 0, a: 1 },
+      green: { r: 0, g: 128, b: 0, a: 1 },
+      blue: { r: 0, g: 0, b: 255, a: 1 },
+    };
+    
+    if (cssString.toLowerCase() in keywords) {
+      return keywords[cssString.toLowerCase()];
+    }
+    
     return null;
   }
 
-  function toHex({ r, g, b }) {
-    return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+  function toHex(rgbObj) {
+    if (!rgbObj || typeof rgbObj.r !== 'number' || typeof rgbObj.g !== 'number' || typeof rgbObj.b !== 'number') {
+      return null;
+    }
+    const clamp = val => Math.max(0, Math.min(255, Math.round(val)));
+    const hex = [rgbObj.r, rgbObj.g, rgbObj.b]
+      .map(v => clamp(v).toString(16).padStart(2, '0'))
+      .join('');
+    return '#' + hex;
   }
 
   function resolveEffectiveBg(el) {
@@ -51,8 +92,13 @@
   }
 
   function truncateText(text, max = 200) {
-    if (text.length <= max) return text;
-    return text.slice(0, max).split(' ').slice(0, -1).join(' ') + '…';
+    if (!text || text.length <= max) return text;
+    const words = text.slice(0, max).split(' ');
+    if (words.length > 1) {
+      const truncated = words.slice(0, -1).join(' ');
+      if (truncated.length > 0) return truncated + '…';
+    }
+    return text.slice(0, max) + '…';
   }
 
   function captureSvg(el) {
@@ -77,7 +123,7 @@
     return 'FRAME';
   }
 
-  function captureElement(el, depth = 0) {
+  function captureElement(el, depth = 0, parentEffectiveBg = null) {
     if (depth > 10 || !isVisible(el)) return null;
 
     const tag = el.tagName.toLowerCase();
@@ -89,7 +135,11 @@
     const bgColor = s.backgroundColor;
     const bgParsed = parseColor(bgColor);
     const isTransparent = !bgParsed || bgParsed.a === 0;
-    const effectiveBg = isTransparent ? resolveEffectiveBg(el.parentElement || el) : bgColor;
+    
+    // Optimize: resolve effective background from parentEffectiveBg or fall back to DOM climbing if not provided
+    const effectiveBg = isTransparent 
+      ? (parentEffectiveBg || resolveEffectiveBg(el.parentElement || el)) 
+      : bgColor;
 
     const borderColorParsed = parseColor(s.borderColor);
 
@@ -171,7 +221,8 @@
 
     if (tag !== 'svg') {
       for (const child of el.children) {
-        const captured = captureElement(child, depth + 1);
+        // Pass parent's effectiveBg to children to avoid O(N*D) getComputedStyle lookups
+        const captured = captureElement(child, depth + 1, effectiveBg);
         if (captured) node.children.push(captured);
       }
     }
@@ -181,9 +232,32 @@
 
   // ── Ancestor finder ──────────────────────────────────────────────────────
 
+  function getComponentContext(el) {
+    const TAG_LABELS = {
+      section: 'Section', article: 'Article', main: 'Main Content',
+      header: 'Header', footer: 'Footer', nav: 'Navigation', aside: 'Sidebar'
+    };
+    const CLASS_LABELS = {
+      hero: 'Hero', card: 'Card', container: 'Container', wrapper: 'Wrapper',
+      banner: 'Banner', feature: 'Feature', cta: 'Call-to-Action', modal: 'Modal'
+    };
+    let node = el;
+    for (let i = 0; i < 5; i++) {
+      if (!node || node === document.body || node === document.documentElement) break;
+      const tag = node.tagName.toLowerCase();
+      const cls = (node.className || '').toString().toLowerCase();
+      for (const t of MEANINGFUL_TAGS) {
+        if (tag === t) return TAG_LABELS[t] || 'Section';
+      }
+      for (const c of MEANINGFUL_CLASSES) {
+        if (cls.includes(c)) return CLASS_LABELS[c] || 'Component';
+      }
+      node = node.parentElement;
+    }
+    return 'Component';
+  }
+
   function findMeaningfulAncestor(el) {
-    const MEANINGFUL_TAGS = ['section', 'article', 'main', 'header', 'footer', 'nav', 'aside'];
-    const MEANINGFUL_CLASSES = ['card', 'hero', 'container', 'wrapper', 'banner', 'feature', 'cta', 'modal'];
     let node = el;
     for (let i = 0; i < 5; i++) {
       if (!node || node === document.body || node === document.documentElement) break;
@@ -258,16 +332,23 @@
     e.preventDefault();
     e.stopPropagation();
 
-    const target = findMeaningfulAncestor(el);
-    const data = captureElement(target);
+    try {
+      const target = findMeaningfulAncestor(el);
+      const contextLabel = getComponentContext(el);
+      const data = captureElement(target);
 
-    if (!data || (data.width === 0 && data.height === 0)) {
-      showToast('No content captured — try clicking a parent element');
-      return;
+      if (!data || (data.width === 0 && data.height === 0)) {
+        showToast('No content captured — try clicking a parent element');
+        return;
+      }
+
+      chrome.runtime.sendMessage({ type: 'CAPTURE_RESULT', data, contextLabel });
+      deactivate();
+    } catch (err) {
+      console.error('[WTP-CONTENT] Click handling failed:', err);
+      showToast('An error occurred while capturing. Exiting.');
+      deactivate();
     }
-
-    chrome.runtime.sendMessage({ type: 'CAPTURE_RESULT', data });
-    deactivate();
   }
 
   function onKeydown(e) {
@@ -288,6 +369,7 @@
   }
 
   function deactivate() {
+    if (!captureMode) return;
     captureMode = false;
     clearHighlight();
     removeToast();
@@ -300,8 +382,16 @@
 
   // ── Message listener ─────────────────────────────────────────────────────
 
-  chrome.runtime.onMessage.addListener((msg) => {
-    if (msg.type === 'ACTIVATE_CAPTURE') activate();
-    if (msg.type === 'DEACTIVATE_CAPTURE') deactivate();
+  chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+    console.log('[WTP-CONTENT] Message received:', msg.type);
+    if (msg.type === 'ACTIVATE_CAPTURE') {
+      activate();
+      sendResponse({ status: 'activated' });
+    }
+    if (msg.type === 'DEACTIVATE_CAPTURE') {
+      deactivate();
+      sendResponse({ status: 'deactivated' });
+    }
+    return true;
   });
 })();

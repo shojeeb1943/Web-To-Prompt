@@ -1,6 +1,7 @@
 (() => {
   let captureData = null;
   let currentFormat = 'html';
+  let contextLabel = 'Component';
 
   const elInfoBar = document.getElementById('infoBar');
   const elLiveDot = document.getElementById('liveDot');
@@ -22,19 +23,21 @@
   // ── Init ───────────────────────────────────────────────────────────────────
 
   function init() {
-    chrome.storage.local.get(['captureResult', 'captureActive'], (result) => {
+    chrome.storage.local.get(['captureResult', 'captureActive', 'contextLabel'], (result) => {
       if (result.captureActive) setLiveState(true);
       if (result.captureResult) {
         captureData = result.captureResult;
+        contextLabel = result.contextLabel || 'Component';
         showPrompt();
       }
     });
 
     chrome.runtime.onMessage.addListener((msg) => {
       if (msg.type === 'CAPTURE_READY') {
-        chrome.storage.local.get('captureResult', (r) => {
+        chrome.storage.local.get(['captureResult', 'contextLabel'], (r) => {
           if (r.captureResult) {
             captureData = r.captureResult;
+            contextLabel = r.contextLabel || 'Component';
             showPrompt();
           }
         });
@@ -65,16 +68,16 @@
   function showPrompt() {
     if (!captureData) return;
 
-    elEmptyState.style.display = 'none';
-    elTextarea.style.display = 'block';
-    elFooter.style.display = 'flex';
+    elEmptyState.classList.add('hidden');
+    elTextarea.classList.remove('hidden');
+    elFooter.classList.remove('hidden');
 
     updateInfoBar(captureData);
     renderPrompt();
   }
 
   function renderPrompt() {
-    elTextarea.value = buildPrompt(captureData, currentFormat);
+    elTextarea.value = buildPrompt(captureData, currentFormat, contextLabel);
   }
 
   function updateInfoBar(data) {
@@ -99,25 +102,18 @@
     if (captureData) renderPrompt();
   });
 
-  // ── Activate button ────────────────────────────────────────────────────────
+  // ── Activate and capture trigger ──────────────────────────────────────────
 
-  elActivateBtn.addEventListener('click', () => {
+  function triggerCapture() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (!tabs[0]) return;
       chrome.runtime.sendMessage({ type: 'ACTIVATE_CAPTURE', tabId: tabs[0].id });
       window.close();
     });
-  });
+  }
 
-  // ── New capture button ─────────────────────────────────────────────────────
-
-  elNewCaptureBtn.addEventListener('click', () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (!tabs[0]) return;
-      chrome.runtime.sendMessage({ type: 'ACTIVATE_CAPTURE', tabId: tabs[0].id });
-      window.close();
-    });
-  });
+  elActivateBtn.addEventListener('click', triggerCapture);
+  elNewCaptureBtn.addEventListener('click', triggerCapture);
 
   // ── Copy button ────────────────────────────────────────────────────────────
 

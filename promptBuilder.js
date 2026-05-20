@@ -6,12 +6,13 @@ const KNOWN_GOOGLE_FONTS = [
 
 const VALID_FORMATS = ['html', 'react', 'vibe'];
 
-function buildPrompt(capturedJSON, format) {
+function buildPrompt(capturedJSON, format, contextLabel = 'Component') {
   if (!capturedJSON || typeof capturedJSON !== 'object') return '';
   format = VALID_FORMATS.includes(format) ? format : 'html';
 
   const tokens = collectTokens(capturedJSON);
-  const overview = buildOverview(capturedJSON, format);
+  const assets = collectAssets(capturedJSON);
+  const overview = buildOverview(capturedJSON, format, contextLabel);
   const layoutTree = buildLayoutTree(capturedJSON, 0);
   const tokenTable = buildTokenTable(tokens);
   const specs = buildElementSpecs(capturedJSON, 0);
@@ -22,6 +23,7 @@ function buildPrompt(capturedJSON, format) {
 
   return [
     `## Component Overview\n${overview}`,
+    assets.length > 0 ? `## Assets / Resources\n${assets.map(a => `- ${a}`).join('\n')}` : null,
     `## Layout Structure\n${layoutTree}`,
     `## Design Tokens\n${tokenTable}`,
     `## Element Specifications\n${specs}`,
@@ -29,7 +31,7 @@ function buildPrompt(capturedJSON, format) {
     `## Hover States\n${hover}`,
     `## Responsive Behavior\n${responsive}`,
     `## Strict Rules\n${rules}`,
-  ].join('\n\n---\n\n');
+  ].filter(Boolean).join('\n\n---\n\n');
 }
 
 // ── Token collection ─────────────────────────────────────────────────────────
@@ -67,6 +69,40 @@ function collectTokens(node) {
   return { colors, fonts, sizes, radii, shadows, spacing };
 }
 
+function collectAssets(node) {
+  const assets = [];
+  const seen = new Set();
+
+  function walk(n) {
+    if (!n) return;
+    if (n.type === 'IMAGE' && n.src && !seen.has(n.src)) {
+      seen.add(n.src);
+      assets.push(`Image: ${n.src}${n.alt ? ` (alt: "${n.alt}")` : ''}`);
+    }
+    if (n.type === 'LINK' && n.href) {
+      const url = n.href.startsWith('data:') ? null : n.href;
+      if (url && !seen.has(url)) {
+        seen.add(url);
+        assets.push(`Link: ${url}`);
+      }
+    }
+    if (n.type === 'FRAME' && n.styles?.backgroundImage && n.styles.backgroundImage.startsWith('url(')) {
+      const match = n.styles.backgroundImage.match(/url\("([^"]+)"\)/);
+      if (match) {
+        const url = match[1];
+        if (!seen.has(url)) {
+          seen.add(url);
+          assets.push(`Background image: ${url}`);
+        }
+      }
+    }
+    (n.children || []).forEach(walk);
+  }
+
+  walk(node);
+  return assets;
+}
+
 function buildTokenTable(tokens) {
   const lines = ['| Token | Value |', '|-------|-------|'];
 
@@ -82,18 +118,38 @@ function buildTokenTable(tokens) {
 
 // ── Overview ─────────────────────────────────────────────────────────────────
 
-function buildOverview(node, format) {
-  const tag = node.tag || 'div';
-  const w = node.width || 0;
-  const h = node.height || 0;
-  const bg = node.styles?.backgroundColorHex || node.styles?.effectiveBg || 'transparent';
-  const childCount = countNodes(node) - 1;
-  const formatLabel = format === 'react' ? 'React + Tailwind' : format === 'vibe' ? 'v0/Bolt/Lovable natural language' : 'HTML + CSS';
+const HUMAN_INTROS = {
+    Hero: "We're designing a bold and visually striking hero section that immediately grabs attention. The hero should feel confident and modern.",
+    Section: "This section needs to feel cohesive and well-structured, supporting the content it contains with clean spacing and clear hierarchy.",
+    'Call-to-Action': "We're creating a compelling call-to-action section that encourages users to take the next step. It should feel inviting and impossible to ignore.",
+    Card: "Each card in this design serves as a self-contained unit — concise, scannable, and visually balanced with the overall layout.",
+    'Main Content': "This is the core content area of the page. It should prioritize readability and allow the content to breathe.",
+    Header: "The header serves as the top navigation anchor — clean, accessible, and immediately recognizable.",
+    Footer: "The footer provides closure and often houses supplementary links. It should feel grounded and organized.",
+    Navigation: "This navigation component should guide users effortlessly. Clear hierarchy and intuitive structure are key.",
+    Article: "An article layout designed for comfortable reading — generous line lengths, clear headings, and proper spacing.",
+    Sidebar: "A supporting sidebar that complements the main content without competing for attention.",
+    Modal: "A focused overlay that demands user attention. It should feel lightweight yet impossible to dismiss casually.",
+    Container: "This container holds and organizes child elements. It needs to feel spacious and well-balanced.",
+    Wrapper: "A wrapper that groups related content together, providing structure without adding visual noise.",
+    Banner: "A banner designed to communicate a message quickly. Bold, direct, and visually prominent.",
+    Feature: "A feature block that highlights something noteworthy. It should be clear what value it delivers.",
+    Component: "This component fits into a larger design system. Keep it clean, reusable, and well-documented.",
+  };
 
-  return `A \`<${tag}>\` component measuring **${w}×${h}px** with a background of \`${bg}\`. ` +
-    `It contains ${childCount} child element${childCount !== 1 ? 's' : ''}. ` +
-    `Output format: **${formatLabel}**.`;
-}
+  function buildOverview(node, format, contextLabel) {
+    const tag = node.tag || 'div';
+    const w = node.width || 0;
+    const h = node.height || 0;
+    const bg = node.styles?.backgroundColorHex || node.styles?.effectiveBg || 'transparent';
+    const childCount = countNodes(node) - 1;
+    const formatLabel = format === 'react' ? 'React + Tailwind' : format === 'vibe' ? 'v0/Bolt/Lovable natural language' : 'HTML + CSS';
+    const intro = HUMAN_INTROS[contextLabel] || HUMAN_INTROS['Component'];
+
+    return `${intro}\n\nA \`<${tag}>\` component measuring **${w}×${h}px** with a background of \`${bg}\`. ` +
+      `It contains ${childCount} child element${childCount !== 1 ? 's' : ''}. ` +
+      `Output format: **${formatLabel}**.`;
+  }
 
 function countNodes(node) {
   if (!node) return 0;
@@ -113,79 +169,84 @@ function buildLayoutTree(node, depth) {
 
 // ── Element specs ─────────────────────────────────────────────────────────────
 
-function buildElementSpecs(node, depth) {
+function buildElementSpecs(node, depth, path = '') {
   if (!node) return '';
   const s = node.styles || {};
-  const indent = '  '.repeat(depth);
   const lines = [];
+  const currentPath = path ? `${path} > ${node.tag}` : node.tag;
 
-  lines.push(`${indent}### \`<${node.tag}>\` — ${node.type}`);
-  lines.push(`${indent}- **Size:** ${node.width}×${node.height}px`);
+  lines.push(`### \`${currentPath}\` — ${node.type}`);
+  lines.push(`- **Size:** ${node.width}×${node.height}px`);
 
   if (s.backgroundColorHex) {
-    lines.push(`${indent}- **Background:** \`${s.backgroundColorHex}\``);
+    lines.push(`- **Background:** \`${s.backgroundColorHex}\``);
   } else if (s.backgroundImage) {
-    lines.push(`${indent}- **Background:** \`${s.backgroundImage}\``);
+    lines.push(`- **Background:** \`${s.backgroundImage}\``);
   } else {
     const note = s.effectiveBg ? ` (resolved from parent: \`${s.effectiveBg}\`)` : '';
-    lines.push(`${indent}- **Background:** transparent${note}`);
+    lines.push(`- **Background:** transparent${note}`);
   }
 
   if (s.borderStyle && s.borderStyle !== 'none') {
-    lines.push(`${indent}- **Border:** \`${s.borderWidth} ${s.borderStyle} ${s.borderColorHex || s.borderColor}\``);
+    lines.push(`- **Border:** \`${s.borderWidth} ${s.borderStyle} ${s.borderColorHex || s.borderColor}\``);
   }
   if (s.borderRadius && s.borderRadius !== '0px') {
-    lines.push(`${indent}- **Border radius:** \`${s.borderRadius}\``);
+    lines.push(`- **Border radius:** \`${s.borderRadius}\``);
   }
   if (s.boxShadow) {
-    lines.push(`${indent}- **Box shadow:** \`${s.boxShadow}\``);
+    lines.push(`- **Box shadow:** \`${s.boxShadow}\``);
   }
 
   const pad = [s.paddingTop, s.paddingRight, s.paddingBottom, s.paddingLeft];
   if (pad.some(p => p && p !== '0px')) {
-    lines.push(`${indent}- **Padding:** \`${s.padding || pad.join(' ')}\``);
+    lines.push(`- **Padding:** \`${s.padding || pad.join(' ')}\``);
   }
 
   if (s.display) {
-    lines.push(`${indent}- **Display:** \`${s.display}\``);
+    lines.push(`- **Display:** \`${s.display}\``);
     if (s.display.includes('flex')) {
-      lines.push(`${indent}  - direction: \`${s.flexDirection}\`, align: \`${s.alignItems}\`, justify: \`${s.justifyContent}\``);
-      if (s.gap && s.gap !== 'normal') lines.push(`${indent}  - gap: \`${s.gap}\``);
+      lines.push(`  - direction: \`${s.flexDirection}\`, align: \`${s.alignItems}\`, justify: \`${s.justifyContent}\``);
+      if (s.gap && s.gap !== 'normal') lines.push(`  - gap: \`${s.gap}\``);
     }
     if (s.display.includes('grid')) {
-      if (s.gridTemplateColumns) lines.push(`${indent}  - columns: \`${s.gridTemplateColumns}\``);
-      if (s.gridTemplateRows) lines.push(`${indent}  - rows: \`${s.gridTemplateRows}\``);
-      if (s.gap && s.gap !== 'normal') lines.push(`${indent}  - gap: \`${s.gap}\``);
+      if (s.gridTemplateColumns) lines.push(`  - columns: \`${s.gridTemplateColumns}\``);
+      if (s.gridTemplateRows) lines.push(`  - rows: \`${s.gridTemplateRows}\``);
+      if (s.gap && s.gap !== 'normal') lines.push(`  - gap: \`${s.gap}\``);
     }
   }
 
   if (node.type === 'TEXT' || node.fullText) {
-    lines.push(`${indent}- **Font:** \`${s.fontFamily}\` ${s.fontSizePx}px / weight \`${s.fontWeight}\``);
-    lines.push(`${indent}- **Color:** \`${s.colorHex || s.color}\``);
-    if (s.lineHeight) lines.push(`${indent}- **Line height:** \`${s.lineHeight}\``);
-    if (s.letterSpacing && s.letterSpacing !== 'normal') lines.push(`${indent}- **Letter spacing:** \`${s.letterSpacing}\``);
-    if (node.fullText) lines.push(`${indent}- **Text content:** "${node.fullText}"`);
+    lines.push(`- **Font:** \`${s.fontFamily}\` ${s.fontSizePx}px / weight \`${s.fontWeight}\``);
+    lines.push(`- **Color:** \`${s.colorHex || s.color}\``);
+    if (s.lineHeight) lines.push(`- **Line height:** \`${s.lineHeight}\``);
+    if (s.letterSpacing && s.letterSpacing !== 'normal') lines.push(`- **Letter spacing:** \`${s.letterSpacing}\``);
+    if (node.fullText) lines.push(`- **Text content:** "${node.fullText}"`);
   }
 
   if (node.type === 'IMAGE') {
-    if (node.src) lines.push(`${indent}- **src:** \`${node.src}\``);
-    if (node.alt !== null) lines.push(`${indent}- **alt:** "${node.alt}"`);
+    if (node.src) lines.push(`- **src:** \`${node.src}\`${node.alt ? ` (alt: "${node.alt}")` : ''}`);
   }
 
   if (node.type === 'LINK' && node.href) {
-    lines.push(`${indent}- **href:** \`${node.href}\``);
+    lines.push(`- **href:** \`${node.href}\``);
+  }
+
+  const bgImg = s.backgroundImage;
+  if (bgImg && bgImg.startsWith('url(')) {
+    const match = bgImg.match(/url\("([^"]+)"\)/);
+    if (match) lines.push(`- **Background image:** \`${match[1]}\``);
   }
 
   if (node.type === 'SVG' && node.svgRaw) {
     const raw = node.svgRaw.length > 5000
       ? node.svgRaw.slice(0, 5000) + '\n<!-- SVG truncated at 5000 chars -->'
       : node.svgRaw;
-    lines.push(`${indent}- **SVG markup:**\n\`\`\`svg\n${raw}\n\`\`\``);
+    lines.push(`- **SVG markup:**\n\`\`\`svg\n${raw}\n\`\`\``);
   }
 
   (node.children || []).forEach(c => {
     lines.push('');
-    lines.push(buildElementSpecs(c, depth + 1));
+    lines.push(buildElementSpecs(c, depth + 1, currentPath));
   });
 
   return lines.join('\n');
