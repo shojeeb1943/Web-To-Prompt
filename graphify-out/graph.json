@@ -1,0 +1,2995 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "popup_ui_system",
+        "label": "Popup UI System",
+        "nodes": [
+          "popup_html",
+          "popup_js",
+          "popup_css"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.8,
+        "source_file": "popup/popup.html"
+      },
+      {
+        "id": "core_extension",
+        "label": "Core Extension Files",
+        "nodes": [
+          "manifest_json",
+          "background_js",
+          "content_js",
+          "promptbuilder_js"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "notes/masterplan.md"
+      },
+      {
+        "id": "issue_tracking_system",
+        "label": "Issue Tracking System",
+        "nodes": [
+          "code_review_issues",
+          "code_fixes_solutions",
+          "issues_quick_reference"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "ISSUES_QUICK_REFERENCE.md"
+      },
+      {
+        "id": "critical_bug_fixes",
+        "label": "Critical Bug Fixes",
+        "nodes": [
+          "color_parser",
+          "input_validation",
+          "dom_null_checks",
+          "message_error_handling",
+          "tab_switch_race_condition"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "CODE_FIXES_SOLUTIONS.md"
+      },
+      {
+        "id": "content_js_improvements",
+        "label": "content.js Improvements",
+        "nodes": [
+          "color_parser",
+          "event_listener_cleanup",
+          "background_resolution",
+          "text_truncation",
+          "svg_error_handling"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.8,
+        "source_file": "CODE_REVIEW_ISSUES.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "background.js",
+      "file_type": "code",
+      "source_file": "background.js",
+      "source_location": "L1",
+      "id": "background_js",
+      "community": 5,
+      "norm_label": "background.js"
+    },
+    {
+      "label": "handleActivate()",
+      "file_type": "code",
+      "source_file": "background.js",
+      "source_location": "L58",
+      "id": "web_to_prompt_chrome_extension_background_handleactivate",
+      "community": 5,
+      "norm_label": "handleactivate()"
+    },
+    {
+      "label": "content.js",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L1",
+      "id": "content_js",
+      "community": 0,
+      "norm_label": "content.js"
+    },
+    {
+      "label": "parseColor()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L11",
+      "id": "web_to_prompt_chrome_extension_content_parsecolor",
+      "community": 0,
+      "norm_label": "parsecolor()"
+    },
+    {
+      "label": "toHex()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L27",
+      "id": "web_to_prompt_chrome_extension_content_tohex",
+      "community": 0,
+      "norm_label": "tohex()"
+    },
+    {
+      "label": "resolveEffectiveBg()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L31",
+      "id": "web_to_prompt_chrome_extension_content_resolveeffectivebg",
+      "community": 0,
+      "norm_label": "resolveeffectivebg()"
+    },
+    {
+      "label": "isVisible()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L46",
+      "id": "web_to_prompt_chrome_extension_content_isvisible",
+      "community": 0,
+      "norm_label": "isvisible()"
+    },
+    {
+      "label": "truncateText()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L53",
+      "id": "web_to_prompt_chrome_extension_content_truncatetext",
+      "community": 0,
+      "norm_label": "truncatetext()"
+    },
+    {
+      "label": "captureSvg()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L58",
+      "id": "web_to_prompt_chrome_extension_content_capturesvg",
+      "community": 0,
+      "norm_label": "capturesvg()"
+    },
+    {
+      "label": "getType()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L69",
+      "id": "web_to_prompt_chrome_extension_content_gettype",
+      "community": 0,
+      "norm_label": "gettype()"
+    },
+    {
+      "label": "captureElement()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L80",
+      "id": "web_to_prompt_chrome_extension_content_captureelement",
+      "community": 0,
+      "norm_label": "captureelement()"
+    },
+    {
+      "label": "findMeaningfulAncestor()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L184",
+      "id": "web_to_prompt_chrome_extension_content_findmeaningfulancestor",
+      "community": 0,
+      "norm_label": "findmeaningfulancestor()"
+    },
+    {
+      "label": "showToast()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L201",
+      "id": "web_to_prompt_chrome_extension_content_showtoast",
+      "community": 0,
+      "norm_label": "showtoast()"
+    },
+    {
+      "label": "removeToast()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L216",
+      "id": "web_to_prompt_chrome_extension_content_removetoast",
+      "community": 0,
+      "norm_label": "removetoast()"
+    },
+    {
+      "label": "setHighlight()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L222",
+      "id": "web_to_prompt_chrome_extension_content_sethighlight",
+      "community": 0,
+      "norm_label": "sethighlight()"
+    },
+    {
+      "label": "clearHighlight()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L231",
+      "id": "web_to_prompt_chrome_extension_content_clearhighlight",
+      "community": 0,
+      "norm_label": "clearhighlight()"
+    },
+    {
+      "label": "onMouseover()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L241",
+      "id": "web_to_prompt_chrome_extension_content_onmouseover",
+      "community": 0,
+      "norm_label": "onmouseover()"
+    },
+    {
+      "label": "onMouseout()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L247",
+      "id": "web_to_prompt_chrome_extension_content_onmouseout",
+      "community": 0,
+      "norm_label": "onmouseout()"
+    },
+    {
+      "label": "onClick()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L251",
+      "id": "web_to_prompt_chrome_extension_content_onclick",
+      "community": 0,
+      "norm_label": "onclick()"
+    },
+    {
+      "label": "onKeydown()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L273",
+      "id": "web_to_prompt_chrome_extension_content_onkeydown",
+      "community": 0,
+      "norm_label": "onkeydown()"
+    },
+    {
+      "label": "activate()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L279",
+      "id": "web_to_prompt_chrome_extension_content_activate",
+      "community": 0,
+      "norm_label": "activate()"
+    },
+    {
+      "label": "deactivate()",
+      "file_type": "code",
+      "source_file": "content.js",
+      "source_location": "L290",
+      "id": "web_to_prompt_chrome_extension_content_deactivate",
+      "community": 0,
+      "norm_label": "deactivate()"
+    },
+    {
+      "label": "manifest.json",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L1",
+      "id": "manifest_json",
+      "community": 2,
+      "norm_label": "manifest.json"
+    },
+    {
+      "label": "manifest_version",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L2",
+      "id": "web_to_prompt_chrome_extension_manifest_manifest_version",
+      "community": 2,
+      "norm_label": "manifest_version"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L3",
+      "id": "web_to_prompt_chrome_extension_manifest_name",
+      "community": 2,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L4",
+      "id": "web_to_prompt_chrome_extension_manifest_version",
+      "community": 2,
+      "norm_label": "version"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L5",
+      "id": "web_to_prompt_chrome_extension_manifest_description",
+      "community": 2,
+      "norm_label": "description"
+    },
+    {
+      "label": "permissions",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L6",
+      "id": "web_to_prompt_chrome_extension_manifest_permissions",
+      "community": 2,
+      "norm_label": "permissions"
+    },
+    {
+      "label": "background",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L7",
+      "id": "web_to_prompt_chrome_extension_manifest_background",
+      "community": 2,
+      "norm_label": "background"
+    },
+    {
+      "label": "service_worker",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L8",
+      "id": "web_to_prompt_chrome_extension_manifest_background_service_worker",
+      "community": 2,
+      "norm_label": "service_worker"
+    },
+    {
+      "label": "content_scripts",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L10",
+      "id": "web_to_prompt_chrome_extension_manifest_content_scripts",
+      "community": 2,
+      "norm_label": "content_scripts"
+    },
+    {
+      "label": "action",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L17",
+      "id": "web_to_prompt_chrome_extension_manifest_action",
+      "community": 7,
+      "norm_label": "action"
+    },
+    {
+      "label": "default_popup",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L18",
+      "id": "web_to_prompt_chrome_extension_manifest_action_default_popup",
+      "community": 7,
+      "norm_label": "default_popup"
+    },
+    {
+      "label": "default_icon",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L19",
+      "id": "web_to_prompt_chrome_extension_manifest_action_default_icon",
+      "community": 7,
+      "norm_label": "default_icon"
+    },
+    {
+      "label": "16",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L20",
+      "id": "web_to_prompt_chrome_extension_manifest_default_icon_16",
+      "community": 7,
+      "norm_label": "16"
+    },
+    {
+      "label": "48",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L21",
+      "id": "web_to_prompt_chrome_extension_manifest_default_icon_48",
+      "community": 7,
+      "norm_label": "48"
+    },
+    {
+      "label": "128",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L22",
+      "id": "web_to_prompt_chrome_extension_manifest_default_icon_128",
+      "community": 7,
+      "norm_label": "128"
+    },
+    {
+      "label": "icons",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L25",
+      "id": "web_to_prompt_chrome_extension_manifest_icons",
+      "community": 2,
+      "norm_label": "icons"
+    },
+    {
+      "label": "16",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L26",
+      "id": "web_to_prompt_chrome_extension_manifest_icons_16",
+      "community": 2,
+      "norm_label": "16"
+    },
+    {
+      "label": "48",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L27",
+      "id": "web_to_prompt_chrome_extension_manifest_icons_48",
+      "community": 2,
+      "norm_label": "48"
+    },
+    {
+      "label": "128",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L28",
+      "id": "web_to_prompt_chrome_extension_manifest_icons_128",
+      "community": 2,
+      "norm_label": "128"
+    },
+    {
+      "label": "commands",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L30",
+      "id": "web_to_prompt_chrome_extension_manifest_commands",
+      "community": 2,
+      "norm_label": "commands"
+    },
+    {
+      "label": "activate_capture",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L31",
+      "id": "web_to_prompt_chrome_extension_manifest_commands_activate_capture",
+      "community": 2,
+      "norm_label": "activate_capture"
+    },
+    {
+      "label": "suggested_key",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L32",
+      "id": "web_to_prompt_chrome_extension_manifest_activate_capture_suggested_key",
+      "community": 2,
+      "norm_label": "suggested_key"
+    },
+    {
+      "label": "default",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L33",
+      "id": "web_to_prompt_chrome_extension_manifest_suggested_key_default",
+      "community": 2,
+      "norm_label": "default"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "manifest.json",
+      "source_location": "L35",
+      "id": "web_to_prompt_chrome_extension_manifest_activate_capture_description",
+      "community": 2,
+      "norm_label": "description"
+    },
+    {
+      "label": "promptBuilder.js",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L1",
+      "id": "promptbuilder_js",
+      "community": 3,
+      "norm_label": "promptbuilder.js"
+    },
+    {
+      "label": "KNOWN_GOOGLE_FONTS",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L1",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_known_google_fonts",
+      "community": 3,
+      "norm_label": "known_google_fonts"
+    },
+    {
+      "label": "VALID_FORMATS",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L7",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_valid_formats",
+      "community": 3,
+      "norm_label": "valid_formats"
+    },
+    {
+      "label": "buildPrompt()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L9",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "community": 3,
+      "norm_label": "buildprompt()"
+    },
+    {
+      "label": "collectTokens()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L37",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_collecttokens",
+      "community": 3,
+      "norm_label": "collecttokens()"
+    },
+    {
+      "label": "buildTokenTable()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L70",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildtokentable",
+      "community": 3,
+      "norm_label": "buildtokentable()"
+    },
+    {
+      "label": "buildOverview()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L85",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildoverview",
+      "community": 3,
+      "norm_label": "buildoverview()"
+    },
+    {
+      "label": "countNodes()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L98",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_countnodes",
+      "community": 3,
+      "norm_label": "countnodes()"
+    },
+    {
+      "label": "buildLayoutTree()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L105",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildlayouttree",
+      "community": 3,
+      "norm_label": "buildlayouttree()"
+    },
+    {
+      "label": "buildElementSpecs()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L116",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildelementspecs",
+      "community": 3,
+      "norm_label": "buildelementspecs()"
+    },
+    {
+      "label": "buildTypography()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L196",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildtypography",
+      "community": 3,
+      "norm_label": "buildtypography()"
+    },
+    {
+      "label": "buildHoverStates()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L213",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildhoverstates",
+      "community": 3,
+      "norm_label": "buildhoverstates()"
+    },
+    {
+      "label": "buildResponsive()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L237",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildresponsive",
+      "community": 3,
+      "norm_label": "buildresponsive()"
+    },
+    {
+      "label": "buildRules()",
+      "file_type": "code",
+      "source_file": "promptBuilder.js",
+      "source_location": "L256",
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildrules",
+      "community": 3,
+      "norm_label": "buildrules()"
+    },
+    {
+      "label": "_run_ast.py",
+      "file_type": "code",
+      "source_file": "_run_ast.py",
+      "source_location": "L1",
+      "id": "run_ast_py",
+      "community": 9,
+      "norm_label": "_run_ast.py"
+    },
+    {
+      "label": "popup.js",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L1",
+      "id": "popup_popup_js",
+      "community": 1,
+      "norm_label": "popup.js"
+    },
+    {
+      "label": "elInfoBar",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L5",
+      "id": "popup_popup_elinfobar",
+      "community": 1,
+      "norm_label": "elinfobar"
+    },
+    {
+      "label": "elLiveDot",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L6",
+      "id": "popup_popup_ellivedot",
+      "community": 1,
+      "norm_label": "ellivedot"
+    },
+    {
+      "label": "elLiveLabel",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L7",
+      "id": "popup_popup_ellivelabel",
+      "community": 1,
+      "norm_label": "ellivelabel"
+    },
+    {
+      "label": "elEmptyState",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L8",
+      "id": "popup_popup_elemptystate",
+      "community": 1,
+      "norm_label": "elemptystate"
+    },
+    {
+      "label": "elTextarea",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L9",
+      "id": "popup_popup_eltextarea",
+      "community": 1,
+      "norm_label": "eltextarea"
+    },
+    {
+      "label": "elFooter",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L10",
+      "id": "popup_popup_elfooter",
+      "community": 1,
+      "norm_label": "elfooter"
+    },
+    {
+      "label": "elCopyBtn",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L11",
+      "id": "popup_popup_elcopybtn",
+      "community": 1,
+      "norm_label": "elcopybtn"
+    },
+    {
+      "label": "elCopyFeedback",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L12",
+      "id": "popup_popup_elcopyfeedback",
+      "community": 1,
+      "norm_label": "elcopyfeedback"
+    },
+    {
+      "label": "elActivateBtn",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L13",
+      "id": "popup_popup_elactivatebtn",
+      "community": 1,
+      "norm_label": "elactivatebtn"
+    },
+    {
+      "label": "elNewCaptureBtn",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L14",
+      "id": "popup_popup_elnewcapturebtn",
+      "community": 1,
+      "norm_label": "elnewcapturebtn"
+    },
+    {
+      "label": "elTabs",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L15",
+      "id": "popup_popup_eltabs",
+      "community": 1,
+      "norm_label": "eltabs"
+    },
+    {
+      "label": "REQUIRED_ELS",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L17",
+      "id": "popup_popup_required_els",
+      "community": 1,
+      "norm_label": "required_els"
+    },
+    {
+      "label": "init()",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L24",
+      "id": "popup_popup_init",
+      "community": 1,
+      "norm_label": "init()"
+    },
+    {
+      "label": "setLiveState()",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L53",
+      "id": "popup_popup_setlivestate",
+      "community": 1,
+      "norm_label": "setlivestate()"
+    },
+    {
+      "label": "showPrompt()",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L65",
+      "id": "popup_popup_showprompt",
+      "community": 1,
+      "norm_label": "showprompt()"
+    },
+    {
+      "label": "renderPrompt()",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L76",
+      "id": "popup_popup_renderprompt",
+      "community": 1,
+      "norm_label": "renderprompt()"
+    },
+    {
+      "label": "updateInfoBar()",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L80",
+      "id": "popup_popup_updateinfobar",
+      "community": 1,
+      "norm_label": "updateinfobar()"
+    },
+    {
+      "label": "btn",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": "L90",
+      "id": "popup_popup_btn",
+      "community": 1,
+      "norm_label": "btn"
+    },
+    {
+      "label": "CODE FIXES & SOLUTIONS",
+      "file_type": "document",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "code_fixes_solutions",
+      "community": 4,
+      "norm_label": "code fixes & solutions"
+    },
+    {
+      "label": "CODE REVIEW - BAD MODE ANALYSIS",
+      "file_type": "document",
+      "source_file": "CODE_REVIEW_ISSUES.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "code_review_issues",
+      "community": 5,
+      "norm_label": "code review - bad mode analysis"
+    },
+    {
+      "label": "ISSUES QUICK REFERENCE",
+      "file_type": "document",
+      "source_file": "ISSUES_QUICK_REFERENCE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "issues_quick_reference",
+      "community": 5,
+      "norm_label": "issues quick reference"
+    },
+    {
+      "label": "Privacy Policy",
+      "file_type": "document",
+      "source_file": "privacy-policy.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "privacy_policy",
+      "community": 6,
+      "norm_label": "privacy policy"
+    },
+    {
+      "label": "Web To Prompt README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme",
+      "community": 8,
+      "norm_label": "web to prompt readme"
+    },
+    {
+      "label": "Claude Chats Notes",
+      "file_type": "document",
+      "source_file": "notes/claude-chats.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_chats",
+      "community": 0,
+      "norm_label": "claude chats notes"
+    },
+    {
+      "label": "Web To Prompt Masterplan",
+      "file_type": "document",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "masterplan",
+      "community": 6,
+      "norm_label": "web to prompt masterplan"
+    },
+    {
+      "label": "Popup HTML",
+      "file_type": "code",
+      "source_file": "popup/popup.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "popup_html",
+      "community": 8,
+      "norm_label": "popup html"
+    },
+    {
+      "label": "popup.js",
+      "file_type": "code",
+      "source_file": "popup/popup.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "popup_js",
+      "community": 4,
+      "norm_label": "popup.js"
+    },
+    {
+      "label": "popup.css",
+      "file_type": "code",
+      "source_file": "popup/popup.css",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "popup_css",
+      "community": 8,
+      "norm_label": "popup.css"
+    },
+    {
+      "label": "DOM Capture Engine",
+      "file_type": "rationale",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recursively walks DOM tree using getBoundingClientRect and getComputedStyle to capture position, size, and visual styles into structured JSON. Depth limited to 10 to prevent excessive recursion. Capture-phase event listeners intercept user clicks before page handlers.",
+      "id": "dom_capture_engine",
+      "community": 0,
+      "norm_label": "dom capture engine"
+    },
+    {
+      "label": "Prompt Builder",
+      "file_type": "rationale",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Converts captured DOM JSON into a structured, copy-ready prompt using pure JavaScript template logic. No AI API required for v1.0 to ensure offline capability, zero backend dependency, and deterministic fast output.",
+      "id": "prompt_builder",
+      "community": 6,
+      "norm_label": "prompt builder"
+    },
+    {
+      "label": "Zero Backend Architecture",
+      "file_type": "rationale",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Extension operates entirely client-side using chrome.storage.local. No external servers, no API keys needed in v1.0. Faster to ship, fully private, works offline.",
+      "id": "zero_backend_architecture",
+      "community": 6,
+      "norm_label": "zero backend architecture"
+    },
+    {
+      "label": "Local Storage Only",
+      "file_type": "rationale",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Captured DOM data is stored temporarily in chrome.storage.local. It never leaves the device, is overwritten on each new capture, and is deleted when the extension is uninstalled.",
+      "id": "local_storage_only",
+      "community": 6,
+      "norm_label": "local storage only"
+    },
+    {
+      "label": "Manifest V3",
+      "file_type": "rationale",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Required by Chrome for all new extensions. Uses a service worker (background.js) instead of a persistent background page. CSP compliant with no inline event handlers.",
+      "id": "manifest_v3",
+      "community": 6,
+      "norm_label": "manifest v3"
+    },
+    {
+      "label": "Vibe Coding Prompt Generation",
+      "file_type": "rationale",
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Output formats include HTML/CSS (precise, no frameworks), React + Tailwind (arbitrary values), and v0/Bolt/Lovable (natural language, descriptive). Designed for AI builder tools.",
+      "id": "vibe_coding_prompts",
+      "community": 8,
+      "norm_label": "vibe coding prompt generation"
+    },
+    {
+      "label": "Complete Color Parser",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Original parseColor only handled rgb/rgba. Fixed version adds hex parsing (3 and 6 digit), CSS keyword lookup (transparent, white, black, red, green, blue), input type guards, and safe fallback to null for unhandled values like currentColor and inherit.",
+      "id": "color_parser",
+      "community": 4,
+      "norm_label": "complete color parser"
+    },
+    {
+      "label": "Input Validation in buildPrompt",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Added object-type and array checks for capturedJSON, a whitelisted VALID_FORMATS array, and a top-level try-catch to prevent silent crashes and return meaningful error messages.",
+      "id": "input_validation",
+      "community": 4,
+      "norm_label": "input validation in buildprompt"
+    },
+    {
+      "label": "DOM Element Null Checks",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Replaced bare document.getElementById calls with a getRequiredElement helper that throws descriptive errors if any required popup DOM element is missing, preventing silent initialization failures.",
+      "id": "dom_null_checks",
+      "community": 4,
+      "norm_label": "dom element null checks"
+    },
+    {
+      "label": "Message Error Handling",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Replaced Promise.catch(()=>{}) with callback-style sendMessage that checks chrome.runtime.lastError. Prevents unhandled rejections when popup is not open and surfaces debug info.",
+      "id": "message_error_handling",
+      "community": 5,
+      "norm_label": "message error handling"
+    },
+    {
+      "label": "Tab Switch Race Condition Fix",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Added early returns for null activeTabId and same-tab switches. Stores oldTabId before nulling state so sendMessage failure on a dead tab is handled gracefully with debug logging.",
+      "id": "tab_switch_race_condition",
+      "community": 5,
+      "norm_label": "tab switch race condition fix"
+    },
+    {
+      "label": "Event Listener Cleanup",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Added captureMode guard to activate() and deactivate() to prevent duplicate listener registration on SPAs. All four capture-phase listeners are explicitly removed on deactivation to avoid memory leaks.",
+      "id": "event_listener_cleanup",
+      "community": 4,
+      "norm_label": "event listener cleanup"
+    },
+    {
+      "label": "Background Color Resolution",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Added maxDepth guard (20), ELEMENT_NODE check, and fallback to document.documentElement background before hardcoded white. Prevents infinite recursion and respects actual page background.",
+      "id": "background_resolution",
+      "community": 4,
+      "norm_label": "background color resolution"
+    },
+    {
+      "label": "Better Text Truncation",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Replaced hardcoded slice(0,200) with a truncateText helper that finds the last space before the limit and appends an ellipsis, preventing mid-word cuts and garbled prompt output.",
+      "id": "text_truncation",
+      "community": 4,
+      "norm_label": "better text truncation"
+    },
+    {
+      "label": "SVG Error Handling",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Wrapped SVG outerHTML access in a try-catch with type and length validation. Truncates oversized SVGs to 5000 chars with an inline comment, preventing crashes on malformed or huge inline SVGs.",
+      "id": "svg_error_handling",
+      "community": 4,
+      "norm_label": "svg error handling"
+    },
+    {
+      "label": "Format Validation",
+      "file_type": "rationale",
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Added a VALID_FORMATS whitelist and explicit check against btn.dataset.format before updating state. Prevents XSS-like injection via manipulated data attributes and skips redundant re-renders.",
+      "id": "format_validation",
+      "community": 4,
+      "norm_label": "format validation"
+    },
+    {
+      "label": "Design Tokens Extraction",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Colors, fonts, spacing, radii, and shadows are deduplicated into a token table within the generated prompt to give AI builders a consolidated reference and maintain consistency.",
+      "id": "design_tokens",
+      "community": 8,
+      "norm_label": "design tokens extraction"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "background.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "background_js",
+      "target": "web_to_prompt_chrome_extension_background_handleactivate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "background_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_REVIEW_ISSUES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_review_issues",
+      "target": "background_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "background_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "background_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "message_error_handling",
+      "target": "background_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "tab_switch_race_condition",
+      "target": "background_js"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "zero_backend_architecture",
+      "target": "background_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_parsecolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_tohex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_resolveeffectivebg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_isvisible",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_truncatetext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_capturesvg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_gettype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_captureelement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_findmeaningfulancestor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_showtoast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L216",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_removetoast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_sethighlight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L231",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_clearhighlight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L241",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_onmouseover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_onmouseout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_onclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L273",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_onkeydown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L279",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_activate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L290",
+      "weight": 1.0,
+      "source": "content_js",
+      "target": "web_to_prompt_chrome_extension_content_deactivate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "content_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_REVIEW_ISSUES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_review_issues",
+      "target": "content_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "content_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "color_parser",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "event_listener_cleanup",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "background_resolution",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "text_truncation",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "svg_error_handling",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "dom_capture_engine",
+      "target": "content_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "design_tokens",
+      "target": "content_js"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "notes/claude-chats.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_chats",
+      "target": "content_js"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_resolveeffectivebg",
+      "target": "web_to_prompt_chrome_extension_content_parsecolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_parsecolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_tohex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_resolveeffectivebg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_isvisible",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_truncatetext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_capturesvg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_captureelement",
+      "target": "web_to_prompt_chrome_extension_content_gettype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L262",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onclick",
+      "target": "web_to_prompt_chrome_extension_content_captureelement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onclick",
+      "target": "web_to_prompt_chrome_extension_content_findmeaningfulancestor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L255",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onclick",
+      "target": "web_to_prompt_chrome_extension_content_showtoast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_activate",
+      "target": "web_to_prompt_chrome_extension_content_showtoast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L293",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_deactivate",
+      "target": "web_to_prompt_chrome_extension_content_removetoast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_sethighlight",
+      "target": "web_to_prompt_chrome_extension_content_clearhighlight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L244",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onmouseover",
+      "target": "web_to_prompt_chrome_extension_content_sethighlight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onmouseout",
+      "target": "web_to_prompt_chrome_extension_content_clearhighlight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L292",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_deactivate",
+      "target": "web_to_prompt_chrome_extension_content_clearhighlight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L270",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onclick",
+      "target": "web_to_prompt_chrome_extension_content_deactivate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "content.js",
+      "source_location": "L274",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_content_onkeydown",
+      "target": "web_to_prompt_chrome_extension_content_deactivate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_manifest_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_permissions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_background",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_content_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_action",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "manifest_json",
+      "target": "web_to_prompt_chrome_extension_manifest_commands",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "manifest_json"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "manifest_json"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "manifest_v3",
+      "target": "manifest_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_background",
+      "target": "web_to_prompt_chrome_extension_manifest_background_service_worker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_action",
+      "target": "web_to_prompt_chrome_extension_manifest_action_default_popup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_action",
+      "target": "web_to_prompt_chrome_extension_manifest_action_default_icon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_action_default_icon",
+      "target": "web_to_prompt_chrome_extension_manifest_default_icon_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_action_default_icon",
+      "target": "web_to_prompt_chrome_extension_manifest_default_icon_48",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_action_default_icon",
+      "target": "web_to_prompt_chrome_extension_manifest_default_icon_128",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_icons",
+      "target": "web_to_prompt_chrome_extension_manifest_icons_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_icons",
+      "target": "web_to_prompt_chrome_extension_manifest_icons_48",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_icons",
+      "target": "web_to_prompt_chrome_extension_manifest_icons_128",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_commands",
+      "target": "web_to_prompt_chrome_extension_manifest_commands_activate_capture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_commands_activate_capture",
+      "target": "web_to_prompt_chrome_extension_manifest_activate_capture_suggested_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_commands_activate_capture",
+      "target": "web_to_prompt_chrome_extension_manifest_activate_capture_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "manifest.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_manifest_activate_capture_suggested_key",
+      "target": "web_to_prompt_chrome_extension_manifest_suggested_key_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_known_google_fonts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_valid_formats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_collecttokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildtokentable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildoverview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_countnodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildlayouttree",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildelementspecs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L196",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildtypography",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildhoverstates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L237",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildresponsive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L256",
+      "weight": 1.0,
+      "source": "promptbuilder_js",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildrules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_REVIEW_ISSUES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_review_issues",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "popup/popup.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "popup_html",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "input_validation",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prompt_builder",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "vibe_coding_prompts",
+      "target": "promptbuilder_js"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_collecttokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildoverview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildlayouttree",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildtokentable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildelementspecs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildtypography",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildhoverstates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildresponsive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildrules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "popup/popup.js",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "popup_popup_renderprompt",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_buildprompt"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "promptBuilder.js",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "web_to_prompt_chrome_extension_promptbuilder_buildoverview",
+      "target": "web_to_prompt_chrome_extension_promptbuilder_countnodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elinfobar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_ellivedot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_ellivelabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elemptystate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_eltextarea",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elfooter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elcopybtn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elcopyfeedback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elactivatebtn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_elnewcapturebtn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_eltabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_required_els",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_setlivestate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_showprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_renderprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_updateinfobar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "popup_popup_js",
+      "target": "popup_popup_btn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "popup_popup_showprompt",
+      "target": "popup_popup_updateinfobar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "popup/popup.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "popup_popup_showprompt",
+      "target": "popup_popup_renderprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ISSUES_QUICK_REFERENCE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "issues_quick_reference",
+      "target": "code_fixes_solutions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "popup_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "popup_css"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "color_parser"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "input_validation"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "dom_null_checks"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "message_error_handling"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "tab_switch_race_condition"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "event_listener_cleanup"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "background_resolution"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "text_truncation"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "svg_error_handling"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_fixes_solutions",
+      "target": "format_validation"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ISSUES_QUICK_REFERENCE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "issues_quick_reference",
+      "target": "code_review_issues"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_REVIEW_ISSUES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_review_issues",
+      "target": "popup_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CODE_REVIEW_ISSUES.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "code_review_issues",
+      "target": "popup_css"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "privacy-policy.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "privacy_policy",
+      "target": "local_storage_only"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "popup_html"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "popup_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "popup_css"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "vibe_coding_prompts"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "design_tokens"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "notes/claude-chats.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_chats",
+      "target": "dom_capture_engine"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "popup_html"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "popup_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "popup_css"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "dom_capture_engine"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "prompt_builder"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "zero_backend_architecture"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "local_storage_only"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "manifest_v3"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "notes/masterplan.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "masterplan",
+      "target": "vibe_coding_prompts"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "popup/popup.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "popup_html",
+      "target": "popup_css"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "popup/popup.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "popup_html",
+      "target": "popup_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "dom_null_checks",
+      "target": "popup_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CODE_FIXES_SOLUTIONS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "format_validation",
+      "target": "popup_js"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "popup_ui_system",
+      "label": "Popup UI System",
+      "nodes": [
+        "popup_html",
+        "popup_js",
+        "popup_css"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "popup/popup.html"
+    },
+    {
+      "id": "core_extension",
+      "label": "Core Extension Files",
+      "nodes": [
+        "manifest_json",
+        "background_js",
+        "content_js",
+        "promptbuilder_js"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "notes/masterplan.md"
+    },
+    {
+      "id": "issue_tracking_system",
+      "label": "Issue Tracking System",
+      "nodes": [
+        "code_review_issues",
+        "code_fixes_solutions",
+        "issues_quick_reference"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "ISSUES_QUICK_REFERENCE.md"
+    },
+    {
+      "id": "critical_bug_fixes",
+      "label": "Critical Bug Fixes",
+      "nodes": [
+        "color_parser",
+        "input_validation",
+        "dom_null_checks",
+        "message_error_handling",
+        "tab_switch_race_condition"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CODE_FIXES_SOLUTIONS.md"
+    },
+    {
+      "id": "content_js_improvements",
+      "label": "content.js Improvements",
+      "nodes": [
+        "color_parser",
+        "event_listener_cleanup",
+        "background_resolution",
+        "text_truncation",
+        "svg_error_handling"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "CODE_REVIEW_ISSUES.md"
+    }
+  ],
+  "built_at_commit": "0ef2cf1b2298520a9d670027c2ab1d8fbc6607ad"
+}

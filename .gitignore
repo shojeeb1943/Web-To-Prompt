@@ -4,7 +4,7 @@
 *.env
 
 # Notes folder
-notes/
+# notes/
 
 # Claude-generated fix/analysis markdown files
 fix-*.md
@@ -19,12 +19,12 @@ ANALYSIS.md
 *.md
 
 # Graphify outputs (all generated files - do not commit)
-graphify-out/
+# graphify-out/
 
 # Mem0 memory files
-.mem0/
-mem0.json
-mem0_config.json
+# .mem0/
+# mem0.json
+# mem0_config.json
 
 # Python temp scripts
 _*.py

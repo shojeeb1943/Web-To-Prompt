@@ -1,0 +1,289 @@
+{
+  "communities": {
+    "0": [
+      "claude_chats",
+      "content_js",
+      "dom_capture_engine",
+      "web_to_prompt_chrome_extension_content_activate",
+      "web_to_prompt_chrome_extension_content_captureelement",
+      "web_to_prompt_chrome_extension_content_capturesvg",
+      "web_to_prompt_chrome_extension_content_clearhighlight",
+      "web_to_prompt_chrome_extension_content_deactivate",
+      "web_to_prompt_chrome_extension_content_findmeaningfulancestor",
+      "web_to_prompt_chrome_extension_content_gettype",
+      "web_to_prompt_chrome_extension_content_isvisible",
+      "web_to_prompt_chrome_extension_content_onclick",
+      "web_to_prompt_chrome_extension_content_onkeydown",
+      "web_to_prompt_chrome_extension_content_onmouseout",
+      "web_to_prompt_chrome_extension_content_onmouseover",
+      "web_to_prompt_chrome_extension_content_parsecolor",
+      "web_to_prompt_chrome_extension_content_removetoast",
+      "web_to_prompt_chrome_extension_content_resolveeffectivebg",
+      "web_to_prompt_chrome_extension_content_sethighlight",
+      "web_to_prompt_chrome_extension_content_showtoast",
+      "web_to_prompt_chrome_extension_content_tohex",
+      "web_to_prompt_chrome_extension_content_truncatetext"
+    ],
+    "1": [
+      "popup_popup_btn",
+      "popup_popup_elactivatebtn",
+      "popup_popup_elcopybtn",
+      "popup_popup_elcopyfeedback",
+      "popup_popup_elemptystate",
+      "popup_popup_elfooter",
+      "popup_popup_elinfobar",
+      "popup_popup_ellivedot",
+      "popup_popup_ellivelabel",
+      "popup_popup_elnewcapturebtn",
+      "popup_popup_eltabs",
+      "popup_popup_eltextarea",
+      "popup_popup_init",
+      "popup_popup_js",
+      "popup_popup_renderprompt",
+      "popup_popup_required_els",
+      "popup_popup_setlivestate",
+      "popup_popup_showprompt",
+      "popup_popup_updateinfobar"
+    ],
+    "2": [
+      "manifest_json",
+      "web_to_prompt_chrome_extension_manifest_activate_capture_description",
+      "web_to_prompt_chrome_extension_manifest_activate_capture_suggested_key",
+      "web_to_prompt_chrome_extension_manifest_background",
+      "web_to_prompt_chrome_extension_manifest_background_service_worker",
+      "web_to_prompt_chrome_extension_manifest_commands",
+      "web_to_prompt_chrome_extension_manifest_commands_activate_capture",
+      "web_to_prompt_chrome_extension_manifest_content_scripts",
+      "web_to_prompt_chrome_extension_manifest_description",
+      "web_to_prompt_chrome_extension_manifest_icons",
+      "web_to_prompt_chrome_extension_manifest_icons_128",
+      "web_to_prompt_chrome_extension_manifest_icons_16",
+      "web_to_prompt_chrome_extension_manifest_icons_48",
+      "web_to_prompt_chrome_extension_manifest_manifest_version",
+      "web_to_prompt_chrome_extension_manifest_name",
+      "web_to_prompt_chrome_extension_manifest_permissions",
+      "web_to_prompt_chrome_extension_manifest_suggested_key_default",
+      "web_to_prompt_chrome_extension_manifest_version"
+    ],
+    "3": [
+      "promptbuilder_js",
+      "web_to_prompt_chrome_extension_promptbuilder_buildelementspecs",
+      "web_to_prompt_chrome_extension_promptbuilder_buildhoverstates",
+      "web_to_prompt_chrome_extension_promptbuilder_buildlayouttree",
+      "web_to_prompt_chrome_extension_promptbuilder_buildoverview",
+      "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "web_to_prompt_chrome_extension_promptbuilder_buildresponsive",
+      "web_to_prompt_chrome_extension_promptbuilder_buildrules",
+      "web_to_prompt_chrome_extension_promptbuilder_buildtokentable",
+      "web_to_prompt_chrome_extension_promptbuilder_buildtypography",
+      "web_to_prompt_chrome_extension_promptbuilder_collecttokens",
+      "web_to_prompt_chrome_extension_promptbuilder_countnodes",
+      "web_to_prompt_chrome_extension_promptbuilder_known_google_fonts",
+      "web_to_prompt_chrome_extension_promptbuilder_valid_formats"
+    ],
+    "4": [
+      "background_resolution",
+      "code_fixes_solutions",
+      "color_parser",
+      "dom_null_checks",
+      "event_listener_cleanup",
+      "format_validation",
+      "input_validation",
+      "popup_js",
+      "svg_error_handling",
+      "text_truncation"
+    ],
+    "5": [
+      "background_js",
+      "code_review_issues",
+      "issues_quick_reference",
+      "message_error_handling",
+      "tab_switch_race_condition",
+      "web_to_prompt_chrome_extension_background_handleactivate"
+    ],
+    "6": [
+      "local_storage_only",
+      "manifest_v3",
+      "masterplan",
+      "privacy_policy",
+      "prompt_builder",
+      "zero_backend_architecture"
+    ],
+    "7": [
+      "web_to_prompt_chrome_extension_manifest_action",
+      "web_to_prompt_chrome_extension_manifest_action_default_icon",
+      "web_to_prompt_chrome_extension_manifest_action_default_popup",
+      "web_to_prompt_chrome_extension_manifest_default_icon_128",
+      "web_to_prompt_chrome_extension_manifest_default_icon_16",
+      "web_to_prompt_chrome_extension_manifest_default_icon_48"
+    ],
+    "8": [
+      "design_tokens",
+      "popup_css",
+      "popup_html",
+      "readme",
+      "vibe_coding_prompts"
+    ],
+    "9": [
+      "run_ast_py"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1774891774891775,
+    "1": 0.11695906432748537,
+    "2": 0.1111111111111111,
+    "3": 0.25274725274725274,
+    "4": 0.24444444444444444,
+    "5": 0.3333333333333333,
+    "6": 0.3333333333333333,
+    "7": 0.3333333333333333,
+    "8": 0.5,
+    "9": 1.0
+  },
+  "gods": [
+    {
+      "id": "code_fixes_solutions",
+      "label": "CODE FIXES & SOLUTIONS",
+      "degree": 16
+    },
+    {
+      "id": "masterplan",
+      "label": "Web To Prompt Masterplan",
+      "degree": 13
+    },
+    {
+      "id": "web_to_prompt_chrome_extension_promptbuilder_buildprompt",
+      "label": "buildPrompt()",
+      "degree": 11
+    },
+    {
+      "id": "web_to_prompt_chrome_extension_content_captureelement",
+      "label": "captureElement()",
+      "degree": 9
+    },
+    {
+      "id": "readme",
+      "label": "Web To Prompt README",
+      "degree": 9
+    },
+    {
+      "id": "code_review_issues",
+      "label": "CODE REVIEW - BAD MODE ANALYSIS",
+      "degree": 6
+    },
+    {
+      "id": "web_to_prompt_chrome_extension_content_onclick",
+      "label": "onClick()",
+      "degree": 5
+    },
+    {
+      "id": "web_to_prompt_chrome_extension_content_deactivate",
+      "label": "deactivate()",
+      "degree": 5
+    },
+    {
+      "id": "popup_html",
+      "label": "Popup HTML",
+      "degree": 5
+    },
+    {
+      "id": "web_to_prompt_chrome_extension_content_clearhighlight",
+      "label": "clearHighlight()",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "renderPrompt()",
+      "target": "buildPrompt()",
+      "source_files": [
+        "popup/popup.js",
+        "promptBuilder.js"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "ISSUES QUICK REFERENCE",
+      "target": "CODE FIXES & SOLUTIONS",
+      "source_files": [
+        "ISSUES_QUICK_REFERENCE.md",
+        "CODE_FIXES_SOLUTIONS.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `ISSUES QUICK REFERENCE` unexpectedly reaches hub `CODE FIXES & SOLUTIONS`"
+    },
+    {
+      "source": "ISSUES QUICK REFERENCE",
+      "target": "CODE REVIEW - BAD MODE ANALYSIS",
+      "source_files": [
+        "ISSUES_QUICK_REFERENCE.md",
+        "CODE_REVIEW_ISSUES.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `ISSUES QUICK REFERENCE` unexpectedly reaches hub `CODE REVIEW - BAD MODE ANALYSIS`"
+    },
+    {
+      "source": "Privacy Policy",
+      "target": "Local Storage Only",
+      "source_files": [
+        "privacy-policy.html",
+        "notes/masterplan.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "Web To Prompt README",
+      "target": "Vibe Coding Prompt Generation",
+      "source_files": [
+        "README.md",
+        "notes/masterplan.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `buildPrompt()` connect `Community 3` to `Community 1`?",
+      "why": "High betweenness centrality (0.297) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Web To Prompt Masterplan` connect `Community 6` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 8`?",
+      "why": "High betweenness centrality (0.293) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `renderPrompt()` connect `Community 1` to `Community 3`?",
+      "why": "High betweenness centrality (0.281) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 10 inferred relationships involving `CODE FIXES & SOLUTIONS` (e.g. with `Complete Color Parser` and `Input Validation in buildPrompt`) actually correct?",
+      "why": "`CODE FIXES & SOLUTIONS` has 10 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 6 inferred relationships involving `Web To Prompt Masterplan` (e.g. with `DOM Capture Engine` and `Prompt Builder`) actually correct?",
+      "why": "`Web To Prompt Masterplan` has 6 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 2 inferred relationships involving `Web To Prompt README` (e.g. with `Vibe Coding Prompt Generation` and `Design Tokens Extraction`) actually correct?",
+      "why": "`Web To Prompt README` has 2 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `manifest_version`, `name`, `version` to the rest of the system?",
+      "why": "32 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}

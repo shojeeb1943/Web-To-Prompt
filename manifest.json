@@ -21,7 +21,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["icons/web2prompt-Icon.svg"],
+      "resources": ["icons/web2prompt-Icon.svg", "icons/icon.svg"],
       "matches": ["<all_urls>"]
     }
   ],
